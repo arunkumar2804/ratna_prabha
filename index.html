@@ -236,55 +236,127 @@
 
     .hero-text {
       margin-top: clamp(28px, 8vh, 72px);
-      max-width: 520px;
-      margin-left: auto;
-      text-align: right;
+      display: flex;
+      justify-content: flex-end;
     }
 
-    .hero-text h1 {
+    .hero-card {
+      background: rgba(18, 54, 121, 0.15); /* Tinted transparent blue-navy */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: clamp(32px, 5vw, 64px);
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 620px;
+      text-align: right;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: hero-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes hero-reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-card h1 {
       margin: 0;
       font-family: var(--font-sans);
-      font-size: clamp(2.5rem, 5.5vw, 4rem);
-      font-weight: 700;
-      line-height: 1.08;
-      letter-spacing: -0.02em;
+      font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--white);
+    }
+
+    .hero-card h1 span {
+      display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: hero-item-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-card h1 .line-1 { animation-delay: 0.2s; }
+    .hero-card h1 .line-2 { animation-delay: 0.35s; color: var(--gold); }
+    .hero-card h1 .line-3 { animation-delay: 0.5s; }
+
+    @keyframes hero-item-reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-tagline {
-      margin-top: 16px;
+      margin-top: 24px;
       font-family: var(--font-sans);
-      font-size: 1.0625rem;
-      font-weight: 500;
-      color: var(--gold);
-      line-height: 1.4;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gold-dark);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: hero-item-reveal 0.8s ease forwards;
+      animation-delay: 0.65s;
     }
 
     .hero-desc {
-      margin-top: 18px;
-      font-size: 0.9375rem;
-      color: rgba(255, 255, 255, 0.92);
-      line-height: 1.6;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      opacity: 0;
+      animation: hero-item-reveal 0.8s ease forwards;
+      animation-delay: 0.8s;
     }
 
     .btn-gold {
       position: relative;
-      display: inline-block;
-      margin-top: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 36px;
       font-family: var(--font-sans);
       background: var(--gold);
       color: var(--navy-deep);
       font-weight: 700;
-      font-size: 0.8125rem;
-      letter-spacing: 0.08em;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 16px 36px;
-      border-radius: 8px;
+      padding: 18px 48px;
+      border-radius: 12px;
       text-decoration: none;
       border: none;
       overflow: hidden;
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, background 0.3s ease;
-      --btn-glow: rgba(197, 160, 89, 0.45);
-      z-index: 1;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 10px 25px -5px rgba(197, 160, 89, 0.4);
+      opacity: 0;
+      animation: hero-item-reveal 0.8s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 20px 35px -5px rgba(197, 160, 89, 0.6);
+      background: var(--white);
+    }
+
+    .btn-gold::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      transition: 0.5s;
+    }
+
+    .btn-gold:hover::after {
+      left: 100%;
     }
 
     .btn-black {
@@ -2186,10 +2258,15 @@
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-text">
-        <h1>K. Ratna Prabha</h1>
-        <p class="hero-tagline">A Leader, A Visionary, A Voice for the People</p>
-        <p class="hero-desc">Retd. IAS officer and former Chief Secretary, Government of Karnataka — dedicated to public service, inclusive policy, and lasting impact across the state.</p>
-        <a class="btn-gold" href="#intro">Read More</a>
+        <div class="hero-card">
+          <h1>
+            <span class="line-1">K. RATNA</span>
+            <span class="line-2">PRABHA</span>
+          </h1>
+          <p class="hero-tagline">Leadership. Impact. Vision.</p>
+          <p class="hero-desc">Retd. IAS officer and former Chief Secretary, Government of Karnataka — dedicated to public service, inclusive policy, and lasting impact.</p>
+          <a class="btn-gold" href="#intro">Read Her Journey</a>
+        </div>
       </div>
     </div>
   </section>
