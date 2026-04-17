@@ -113,8 +113,9 @@
         0 10px 40px 0 rgba(31, 38, 135, 0.15);
     }
 
-    .site-header.is-hidden {
-      transform: translateX(-50%) translateY(-200%);
+    .site-header.is-hidden,
+    .site-header.is-passed-hero {
+      transform: translateX(-50%) translateY(-220%);
       pointer-events: none;
     }
 
@@ -2597,8 +2598,14 @@
             header.classList.remove("is-hidden");
           } else if (y > lastY + directionEpsilon) {
             header.classList.add("is-hidden");
-          } else if (y < lastY - directionEpsilon) {
+          } else if (y < lastY - directionEpsilon && y <= window.innerHeight) {
             header.classList.remove("is-hidden");
+          }
+
+          if (y > window.innerHeight) {
+            header.classList.add("is-passed-hero");
+          } else {
+            header.classList.remove("is-passed-hero");
           }
 
           lastY = y;
