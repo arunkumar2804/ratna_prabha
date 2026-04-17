@@ -84,63 +84,52 @@
     /* —— Fixed header —— */
     .site-header {
       position: fixed;
-      top: 24px;
+      /* Linear interpolation using --scroll-progress (0 to 1) */
+      --scroll-progress: 0;
+      top: calc(24px - (8px * var(--scroll-progress)));
       left: 50%;
       transform: translateX(-50%) translateY(0);
-      width: min(95%, 1200px);
+      width: calc(min(98%, 1400px) * (1 - var(--scroll-progress)) + min(90%, 1100px) * var(--scroll-progress));
       z-index: 1000;
-      background-color: transparent;
-      border-radius: 100px;
+      background-color: rgba(255, 255, 255, calc(var(--scroll-progress) * 0.75));
+      backdrop-filter: blur(calc(var(--scroll-progress) * 16px)) saturate(calc(100% + var(--scroll-progress) * 80%));
+      -webkit-backdrop-filter: blur(calc(var(--scroll-progress) * 16px)) saturate(calc(100% + var(--scroll-progress) * 80%));
+      border-radius: calc(var(--scroll-progress) * 100px);
+      border: 1px solid rgba(255, 255, 255, calc(var(--scroll-progress) * 0.3));
+      box-shadow: 0 calc(var(--scroll-progress) * 4px) calc(var(--scroll-progress) * 6px) -1px rgba(0, 0, 0, 0.05);
+      
       transition:
-        background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        top 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        padding 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-        backdrop-filter 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.5s ease;
     }
 
-    .site-header.is-scrolled {
-      top: 16px;
-      width: min(90%, 1100px);
-      background-color: rgba(255, 255, 255, 0.75);
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 
-        0 4px 6px -1px rgba(0, 0, 0, 0.05),
-        0 10px 40px 0 rgba(31, 38, 135, 0.15);
-    }
-
-    .site-header.is-hidden,
-    .site-header.is-passed-hero {
+    .site-header.is-hidden {
       transform: translateX(-50%) translateY(-220%);
       pointer-events: none;
     }
 
     .site-header .nav-inner {
-      padding: clamp(20px, 4vw, 32px) 0;
-      transition: padding 0.5s ease;
-    }
-
-    .site-header.is-scrolled .nav-inner {
-      padding: 12px 32px;
+      padding: calc(clamp(20px, 4vw, 32px) * (1 - var(--scroll-progress)) + 12px * var(--scroll-progress)) 
+               calc(var(--scroll-progress) * 32px);
+      transition: padding 0.1s linear; /* Fast response to scroll */
     }
 
     .site-header .brand {
-      color: var(--white);
-      transition: color 0.4s ease, font-size 0.4s ease;
+      color: rgb(
+        calc(255 * (1 - var(--scroll-progress)) + 18 * var(--scroll-progress)),
+        calc(255 * (1 - var(--scroll-progress)) + 54 * var(--scroll-progress)),
+        calc(255 * (1 - var(--scroll-progress)) + 121 * var(--scroll-progress))
+      );
+      transition: color 0.1s linear;
     }
 
-    .site-header.is-scrolled .brand {
-      color: var(--navy);
-      font-size: 1.15rem;
-    }
-
-    .site-header.is-scrolled .nav-links {
-      color: var(--ink);
-      gap: clamp(20px, 5vw, 60px);
+    .site-header .nav-links {
+      color: rgba(
+        calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
+        calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
+        calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
+        calc(0.95 + var(--scroll-progress) * 0.05)
+      );
     }
 
     /* —— Nav + Hero —— */
@@ -2587,25 +2576,17 @@
 
         function onScroll() {
           var y = window.scrollY;
+          var heroHeight = window.innerHeight;
+          var progress = Math.min(y / heroHeight, 1);
 
-          if (y > scrolledThreshold) {
-            header.classList.add("is-scrolled");
-          } else {
-            header.classList.remove("is-scrolled");
-          }
+          header.style.setProperty("--scroll-progress", progress);
 
-          if (y <= topRevealPx) {
+          if (y < lastY - directionEpsilon || y <= topRevealPx) {
+            // Show if scrolling up OR at the very top
             header.classList.remove("is-hidden");
-          } else if (y > lastY + directionEpsilon) {
+          } else if (y > lastY + directionEpsilon && y > heroHeight) {
+            // Hide on scroll down ONLY if we are past the Hero section
             header.classList.add("is-hidden");
-          } else if (y < lastY - directionEpsilon && y <= window.innerHeight) {
-            header.classList.remove("is-hidden");
-          }
-
-          if (y > window.innerHeight) {
-            header.classList.add("is-passed-hero");
-          } else {
-            header.classList.remove("is-passed-hero");
           }
 
           lastY = y;
