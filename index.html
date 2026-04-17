@@ -862,73 +862,85 @@
     }
 
     /* —— Effect —— */
+    /* —— Effect Section (Redesigned) —— */
     .effect-split {
-      padding: 88px 0;
+      padding: clamp(80px, 12vw, 140px) 0;
       background: var(--white);
+      position: relative;
+      overflow: hidden;
     }
 
     .effect-grid {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 48px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(40px, 6vw, 84px);
       align-items: center;
     }
 
-    .map-stage {
+    .effect-copy {
       position: relative;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .map-stage .map-img {
-      width: 100%;
-      display: block;
-      border-radius: 12px;
-    }
-
-    .map-pin {
-      position: absolute;
-      width: 11%;
-      min-width: 40px;
-      max-width: 56px;
-      height: auto;
-      filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
-    }
-
-    .map-pin:nth-of-type(1) {
-      top: 38%;
-      left: 22%;
-    }
-
-    .map-pin:nth-of-type(2) {
-      top: 32%;
-      left: 48%;
-    }
-
-    .map-pin:nth-of-type(3) {
-      top: 48%;
-      left: 36%;
-    }
-
-    .map-pin:nth-of-type(4) {
-      top: 62%;
-      left: 58%;
+      z-index: 2;
     }
 
     .effect-copy h2 {
-      margin: 0 0 16px;
+      margin: 0 0 24px;
       font-family: var(--font-sans);
-      font-size: clamp(1.35rem, 2.5vw, 1.65rem);
+      font-size: clamp(2.5rem, 4.5vw, 4.2rem);
       font-weight: 800;
-      letter-spacing: 0.04em;
-      color: var(--black);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--navy-deep);
+      text-transform: uppercase;
     }
 
     .effect-copy p {
       margin: 0;
-      font-size: 1rem;
-      color: var(--muted);
-      font-weight: 500;
+      font-family: var(--font-sans);
+      font-size: clamp(1rem, 1.8vw, 1.45rem);
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .effect-copy p span {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .effect-copy p span:not(:last-child)::after {
+      content: "|";
+      margin-left: 12px;
+      opacity: 0.4;
+      font-weight: 300;
+    }
+
+    .map-stage {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      perspective: 1000px;
+    }
+
+    .map-stage .map-img {
+      width: 100%;
+      max-width: 580px;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
+      transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+      transform: rotateY(-8deg) rotateX(4deg);
+    }
+
+    .map-stage:hover .map-img {
+      transform: rotateY(0) rotateX(0) scale(1.02);
+      filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.12));
     }
 
     /* —— Contributions —— */
@@ -2139,18 +2151,19 @@
     </div>
   </section>
 
-  <section class="effect-split" id="effect">
+  <section class="effect-split section-reveal" id="effect">
     <div class="container effect-grid">
+      <div class="effect-copy">
+        <h2>The Ratna<br>Prabha Effect</h2>
+        <p>
+          <span>Policy</span>
+          <span>Practice</span>
+          <span>People</span>
+          <span>Progress</span>
+        </p>
+      </div>
       <div class="map-stage">
         <img class="map-img" src="./assets/images/karnataka-map.png" width="1200" height="900" alt="Map of Karnataka">
-        <img class="map-pin" src="./assets/images/city-card-1.png" width="56" height="56" alt="" aria-hidden="true">
-        <img class="map-pin" src="./assets/images/city-card-2.png" width="56" height="56" alt="" aria-hidden="true">
-        <img class="map-pin" src="./assets/images/city-card-3.png" width="56" height="56" alt="" aria-hidden="true">
-        <img class="map-pin" src="./assets/images/city-card-4.png" width="56" height="56" alt="" aria-hidden="true">
-      </div>
-      <div class="effect-copy">
-        <h2>THE RATNA PRABHA EFFECT</h2>
-        <p>Policy | Practice | People | Progress</p>
       </div>
     </div>
   </section>
