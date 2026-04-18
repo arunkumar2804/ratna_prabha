@@ -2204,19 +2204,21 @@
       }
 
       .intro-dark {
-        min-height: 1280px;
+        min-height: 800px; /* Reduced from 1280px for better fit */
         background-image: url("./assets/images/third-section-bg-mobile.avif");
-        background-position: center top;
+        background-attachment: scroll !important; /* Fixed doesn't work well on mobile */
+        background-position: center center;
+        background-size: cover;
       }
 
       .intro-dark::before {
-        background: linear-gradient(180deg, rgba(8, 20, 34, 0.28) 0%, rgba(8, 20, 34, 0.12) 34%, rgba(8, 20, 34, 0.08) 100%);
+        background: linear-gradient(180deg, rgba(8, 20, 34, 0.45) 0%, rgba(8, 20, 34, 0.2) 40%, rgba(8, 20, 34, 0.7) 100%);
       }
 
       .intro-dark .container {
-        width: calc(100% - 96px);
-        min-height: 1280px;
-        padding: 78px 0 64px;
+        width: calc(100% - 64px);
+        min-height: 800px;
+        padding: 64px 0 48px;
       }
 
       .intro-top {
