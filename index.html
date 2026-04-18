@@ -31,20 +31,27 @@
       box-sizing: border-box;
     }
 
-    html,
+    html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: auto;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
       margin: 0;
       padding: 0;
       width: 100%;
-      overflow-x: hidden;
-    }
-
-    body {
       font-family: var(--font-sans);
       color: var(--ink);
       background: var(--white);
       line-height: 1.55;
       font-size: 16px;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      position: relative;
     }
 
     .text-reveal {
@@ -170,6 +177,7 @@
     .hero {
       position: relative;
       min-height: 100vh;
+      min-height: 100dvh;
       color: var(--white);
       background: url("./assets/images/hero-header.avif") center center/cover no-repeat;
     }
@@ -1945,6 +1953,7 @@
 
       .intro-dark {
         min-height: auto;
+        background-attachment: scroll; /* Fix for mobile scroll bounce/lag */
       }
 
       .intro-dark .container {
@@ -2116,8 +2125,10 @@
         left: 0;
         width: 100%;
         height: 100vh;
+        height: 100dvh;
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -2204,9 +2215,11 @@
       }
 
       .intro-dark {
-        min-height: 800px; /* Reduced from 1280px for better fit */
+        min-height: 800px;
+        /* Reduced from 1280px for better fit */
         background-image: url("./assets/images/third-section-bg-mobile.avif");
-        background-attachment: scroll !important; /* Fixed doesn't work well on mobile */
+        background-attachment: scroll !important;
+        /* Fixed doesn't work well on mobile */
         background-position: center center;
         background-size: cover;
       }
