@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>K. Ratna Prabha</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --navy: #162a5b;
@@ -28,7 +31,8 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       width: 100%;
@@ -83,7 +87,9 @@
       margin: 0 auto;
     }
 
-    h1, h2, .font-serif {
+    h1,
+    h2,
+    .font-serif {
       font-family: var(--font-serif);
     }
 
@@ -103,7 +109,7 @@
       border-radius: calc(var(--scroll-progress) * 100px);
       border: 1px solid rgba(255, 255, 255, calc(var(--scroll-progress) * 0.3));
       box-shadow: 0 calc(var(--scroll-progress) * 4px) calc(var(--scroll-progress) * 6px) -1px rgba(0, 0, 0, 0.05);
-      
+
       transition:
         transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
         opacity 0.5s ease;
@@ -115,27 +121,23 @@
     }
 
     .site-header .nav-inner {
-      padding: calc(clamp(20px, 4vw, 32px) * (1 - var(--scroll-progress)) + 12px * var(--scroll-progress)) 
-               calc(var(--scroll-progress) * 32px);
-      transition: padding 0.1s linear; /* Fast response to scroll */
+      padding: calc(clamp(20px, 4vw, 32px) * (1 - var(--scroll-progress)) + 12px * var(--scroll-progress)) calc(var(--scroll-progress) * 32px);
+      transition: padding 0.1s linear;
+      /* Fast response to scroll */
     }
 
     .site-header .brand {
-      color: rgb(
-        calc(255 * (1 - var(--scroll-progress)) + 18 * var(--scroll-progress)),
-        calc(255 * (1 - var(--scroll-progress)) + 54 * var(--scroll-progress)),
-        calc(255 * (1 - var(--scroll-progress)) + 121 * var(--scroll-progress))
-      );
+      color: rgb(calc(255 * (1 - var(--scroll-progress)) + 18 * var(--scroll-progress)),
+          calc(255 * (1 - var(--scroll-progress)) + 54 * var(--scroll-progress)),
+          calc(255 * (1 - var(--scroll-progress)) + 121 * var(--scroll-progress)));
       transition: color 0.1s linear;
     }
 
     .site-header .nav-links {
-      color: rgba(
-        calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
-        calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
-        calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
-        calc(0.95 + var(--scroll-progress) * 0.05)
-      );
+      color: rgba(calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
+          calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
+          calc(255 * (1 - var(--scroll-progress)) + 45 * var(--scroll-progress)),
+          calc(0.95 + var(--scroll-progress) * 0.05));
     }
 
     @media (max-width: 720px) {
@@ -143,15 +145,19 @@
         top: 12px;
         width: 92%;
       }
+
       .site-header.is-hidden {
         transform: translateX(-50%) translateY(-150%);
       }
+
       .site-header .nav-inner {
         padding: 6px 14px;
       }
+
       .brand {
         font-size: 0.9rem;
       }
+
       .btn-header-contact {
         width: auto;
         padding: 0 12px;
@@ -165,7 +171,7 @@
       position: relative;
       min-height: 100vh;
       color: var(--white);
-      background: url("./assets/images/hero-header.png") center center/cover no-repeat;
+      background: url("./assets/images/hero-header.avif") center center/cover no-repeat;
     }
 
     .hero-inner {
@@ -259,7 +265,8 @@
     }
 
     .hero-card {
-      background: rgba(18, 54, 121, 0.15); /* Tinted transparent blue-navy */
+      background: rgba(18, 54, 121, 0.15);
+      /* Tinted transparent blue-navy */
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       padding: clamp(32px, 5vw, 64px);
@@ -297,9 +304,18 @@
       animation: hero-item-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .hero-card h1 .line-1 { animation-delay: 0.2s; }
-    .hero-card h1 .line-2 { animation-delay: 0.35s; color: var(--gold); }
-    .hero-card h1 .line-3 { animation-delay: 0.5s; }
+    .hero-card h1 .line-1 {
+      animation-delay: 0.2s;
+    }
+
+    .hero-card h1 .line-2 {
+      animation-delay: 0.35s;
+      color: var(--gold);
+    }
+
+    .hero-card h1 .line-3 {
+      animation-delay: 0.5s;
+    }
 
     @keyframes hero-item-reveal {
       to {
@@ -312,9 +328,9 @@
       margin-top: 24px;
       font-family: var(--font-sans);
       font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--gold-dark);
-      letter-spacing: 0.1em;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0em;
       text-transform: uppercase;
       opacity: 0;
       animation: hero-item-reveal 0.8s ease forwards;
@@ -381,15 +397,18 @@
       .hero-text {
         justify-content: center;
       }
+
       .hero-card {
         padding: 32px 24px;
         text-align: center;
         border-radius: 20px;
         margin: 0 16px;
       }
+
       .hero-card h1 {
         font-size: 2.8rem;
       }
+
       .btn-gold {
         padding: 14px 32px;
         font-size: 0.75rem;
@@ -524,6 +543,7 @@
     }
 
     @media (hover: hover) and (pointer: fine) {
+
       .btn-header-contact:hover,
       .btn-gold:hover,
       .btn-black:hover,
@@ -565,9 +585,11 @@
       0% {
         transform: translateY(-1px) scale(1.01);
       }
+
       40% {
         transform: translateY(1px) scale(0.96);
       }
+
       100% {
         transform: translateY(0) scale(1);
       }
@@ -578,6 +600,7 @@
         opacity: 0.64;
         transform: translate(-50%, -50%) scale(0);
       }
+
       100% {
         opacity: 0;
         transform: translate(-50%, -50%) scale(18);
@@ -585,6 +608,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .btn-header-contact,
       .btn-gold,
       .btn-black,
@@ -682,7 +706,8 @@
     .stat-reel-strip.is-spinning {
       filter: blur(2px);
       opacity: 0.85;
-      transition: transform 0.8s linear; /* Linear while spinning, spring when settling */
+      transition: transform 0.8s linear;
+      /* Linear while spinning, spring when settling */
     }
 
     .stat-reel-digit {
@@ -735,8 +760,9 @@
       position: relative;
       min-height: 732px;
       color: var(--white);
-      background: url("./assets/images/third-section-bg.png") center/cover no-repeat;
-      background-attachment: fixed; /* Parallax effect */
+      background: url("./assets/images/third-section-bg.avif") center/cover no-repeat;
+      background-attachment: fixed;
+      /* Parallax effect */
       overflow: hidden;
     }
 
@@ -915,7 +941,7 @@
       padding: 88px 0 96px;
       background:
         linear-gradient(180deg, rgba(22, 42, 91, 0.94) 0%, rgba(15, 31, 69, 0.96) 100%),
-        url("./assets/images/section-bg.png") center/cover no-repeat;
+        url("./assets/images/section-bg.avif") center/cover no-repeat;
       color: var(--white);
       text-align: center;
     }
@@ -944,7 +970,7 @@
       font-size: 1.125rem;
       color: var(--navy);
       line-height: 1.5;
-      box-shadow: 
+      box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.05),
         0 12px 24px rgba(0, 0, 0, 0.08);
       transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease, background 0.4s ease;
@@ -959,7 +985,7 @@
     .bidar-card:hover {
       background: #fdfaf5;
       transform: translateY(-10px) scale(1.03);
-      box-shadow: 
+      box-shadow:
         0 20px 25px -5px rgba(0, 0, 0, 0.08),
         0 10px 10px -5px rgba(0, 0, 0, 0.02);
       border-color: var(--gold);
@@ -1096,10 +1122,21 @@
       transform: translateY(0);
     }
 
-    .effect-card:nth-child(1) { transition-delay: 700ms; }
-    .effect-card:nth-child(2) { transition-delay: 800ms; }
-    .effect-card:nth-child(3) { transition-delay: 900ms; }
-    .effect-card:nth-child(4) { transition-delay: 1000ms; }
+    .effect-card:nth-child(1) {
+      transition-delay: 700ms;
+    }
+
+    .effect-card:nth-child(2) {
+      transition-delay: 800ms;
+    }
+
+    .effect-card:nth-child(3) {
+      transition-delay: 900ms;
+    }
+
+    .effect-card:nth-child(4) {
+      transition-delay: 1000ms;
+    }
 
     .effect-card:hover {
       background: var(--white);
@@ -1142,20 +1179,26 @@
         grid-template-columns: 1fr;
         gap: 40px;
       }
+
       .effect-copy {
         max-width: 100%;
         text-align: center;
       }
-      .effect-title, .effect-intro {
+
+      .effect-title,
+      .effect-intro {
         text-align: center;
       }
+
       .effect-cards {
         grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         justify-content: center;
       }
+
       .map-stage {
         justify-content: center;
       }
+
       .effect-bg-accent {
         font-size: 10rem;
         left: 0;
@@ -1169,6 +1212,7 @@
         max-width: 400px;
         margin: 0 auto;
       }
+
       .effect-card {
         padding: 24px;
       }
@@ -1197,7 +1241,7 @@
       display: block;
       border-radius: 24px;
       filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.08));
-      transition: 
+      transition:
         transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
         filter 1.2s cubic-bezier(0.16, 1, 0.3, 1),
         opacity 1.2s ease;
@@ -1215,8 +1259,13 @@
     }
 
     @keyframes map-float {
-      0% { transform: rotateY(-8deg) rotateX(4deg) translateY(0); }
-      100% { transform: rotateY(-5deg) rotateX(2deg) translateY(-15px); }
+      0% {
+        transform: rotateY(-8deg) rotateX(4deg) translateY(0);
+      }
+
+      100% {
+        transform: rotateY(-5deg) rotateX(2deg) translateY(-15px);
+      }
     }
 
     .map-stage:hover .map-img {
@@ -1380,7 +1429,7 @@
     /* —— Awards —— */
     .awards {
       position: relative;
-      background: #061c47 url('./assets/images/Award bg.png') no-repeat center center;
+      background: #061c47 url('./assets/images/Award bg.avif') no-repeat center center;
       background-size: cover;
       color: var(--white);
       padding: 120px 0;
@@ -1560,6 +1609,7 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+
       .media-card,
       .media-card::before,
       .media-card::after,
@@ -1788,10 +1838,17 @@
       padding: 0;
     }
 
-    .footer-col li {
+    .footer-col ul li {
       margin-bottom: 8px;
     }
 
+    /* Mobile Nav Elements - Hidden on Desktop */
+    .btn-icon,
+    .menu-toggle {
+      display: none;
+    }
+
+    /* —— Responsive —— */
     .footer-col a {
       color: rgba(255, 255, 255, 0.72);
       text-decoration: none;
@@ -1832,6 +1889,7 @@
     }
 
     @media (max-width: 1000px) {
+
       .bidar-cards,
       .contrib-grid,
       .awards-grid,
@@ -1949,6 +2007,105 @@
     }
 
     @media (max-width: 720px) {
+      .hero {
+        background-image: url("./assets/images/hero-header-mobile.avif");
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .btn-header-contact {
+        padding: 0;
+        width: 32px;
+        height: 32px;
+        background: none !important;
+        box-shadow: none !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-header-contact .btn-text {
+        display: none;
+      }
+
+      .btn-header-contact .btn-icon,
+      .menu-toggle .menu-icon {
+        display: block;
+        width: 24px;
+        height: 24px;
+        /* White icon initially */
+        filter: brightness(0) invert(1);
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+
+      /* Blue Icons on Scroll - Fixed Navy for White Icons */
+      .site-header.is-scrolled .btn-header-contact .btn-icon,
+      .site-header.is-scrolled .menu-toggle .menu-icon {
+        filter: brightness(0) saturate(100%) invert(13%) sepia(57%) saturate(2159%) hue-rotate(204deg) brightness(93%) contrast(93%);
+      }
+
+      .menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+      }
+
+      .menu-toggle.is-active .menu-icon {
+        transform: rotate(90deg);
+      }
+
+      .mobile-nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .mobile-nav.is-active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+      }
+
+      .mobile-nav-links a {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        color: var(--navy);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
       .container {
         width: calc(100% - 32px);
       }
@@ -2007,7 +2164,7 @@
 
       .intro-dark {
         min-height: 1280px;
-        background-image: url("./assets/images/third-section-bg-mobile.png");
+        background-image: url("./assets/images/third-section-bg-mobile.avif");
         background-position: center top;
       }
 
@@ -2080,6 +2237,8 @@
 
       .stats-grid .stat-card {
         width: min(100%, 320px);
+      }
+
       .stat-card {
         min-height: 246px;
       }
@@ -2089,121 +2248,303 @@
       }
     }
 
-    /* —— Quote Slider (Redesigned Ultra Modern) —— */
+    /* —————— Quote Slider: Staggered Modern Rework —————— */
     .quote-slider {
       position: relative;
-      height: 80vh;
+      height: 90vh;
+      min-height: 650px;
       width: 100%;
       overflow: hidden;
-      background: var(--navy);
-      color: var(--white);
+      background: #001242;
+      /* Deep background for the strong gradient */
     }
 
     .slide {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
       display: flex;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1), opacity 1s ease;
+      transform: translateX(-100%);
+      /* Start from Left */
+      opacity: 0;
+      z-index: 1;
     }
 
+    .slide.is-active {
+      transform: translateX(0);
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .slide.exit-right {
+      transform: translateX(100%);
+      /* Exit to Right */
+      opacity: 0;
+    }
+
+    /* Portrait Background: Immersive Full Fill */
+    .slide-bg-portrait {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      z-index: 1;
+      filter: grayscale(1) brightness(0.85);
+    }
+
+    /* Strong Cinematic Gradient Overlay */
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg,
+          rgba(0, 50, 160, 0.92) 0%,
+          rgba(0, 20, 80, 0.85) 45%,
+          rgba(0, 15, 60, 0.0) 100%);
+      z-index: 2;
+    }
+
+    /* Blue tint mix */
     .slide::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image: inherit;
-      background-size: cover;
-      background-position: center;
-      background-blend-mode: multiply;
-      transition: transform 12s linear;
-      z-index: 1;
-    }
-
-    .slide-1 {
-      background-color: rgba(0, 30, 90, 0.4);
-      background-image: url("./assets/images/ratna-bg.png");
-    }
-
-    .slide-2 {
-      background-color: rgba(20, 20, 40, 0.5);
-      background-image: url("./assets/images/hero-header.png");
-    }
-
-    .slide.is-active {
-      opacity: 1;
-      visibility: visible;
+      background: rgba(0, 84, 255, 0.2);
+      mix-blend-mode: soft-light;
       z-index: 2;
-    }
-
-    .slide.is-active::before {
-      transform: scale(1.1);
     }
 
     .slide-inner {
       position: relative;
-      z-index: 5;
-      text-align: center;
-      max-width: 900px;
-      padding: 0 40px;
-      transform: translateY(20px);
-    @keyframes scaleXIn {
-      to { opacity: 0.8; transform: scaleX(1); }
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10%;
     }
 
-    @media (max-width: 720px) {
+    /* Staggered Branding Elements */
+    .slide-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 40px;
+    }
+
+    .slide-name,
+    .slide-underline,
+    .quote-icon-big,
+    .slide-right {
+      transform: translateX(60px);
+      opacity: 0;
+      transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.is-active .slide-name {
+      transform: translateX(0);
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
+
+    .slide.is-active .slide-underline {
+      transform: translateX(0);
+      opacity: 1;
+      transition-delay: 0.2s;
+    }
+
+    .slide.is-active .quote-icon-big {
+      transform: translateX(0);
+      opacity: 1;
+      transition-delay: 0.3s;
+    }
+
+    .slide.is-active .slide-right {
+      transform: translateX(0);
+      opacity: 1;
+      transition-delay: 0.4s;
+    }
+
+    .slide-name {
+      font-family: var(--font-sans);
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      margin: 0;
+      letter-spacing: -0.03em;
+    }
+
+    .slide-underline {
+      width: 160px;
+      height: 3px;
+      background: var(--gold);
+      margin: 15px 0 45px;
+    }
+
+    .quote-icon-big {
+      width: clamp(200px, 25vw, 300px);
+      height: auto;
+      filter: drop-shadow(0 20px 40px rgba(0, 120, 255, 0.4));
+    }
+
+    /* Right Side: Quote in Corner */
+    .slide-right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      align-self: flex-start;
+      margin-top: 100px;
+      padding-right: 30px;
+    }
+
+    .quote-icon-small {
+      width: 48px;
+      height: auto;
+      margin-bottom: 25px;
+      filter: brightness(100);
+      /* White for deep blue bg */
+    }
+
+    .quote-main-text {
+      font-family: var(--font-sans);
+      font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+      font-weight: 300;
+      line-height: 1.5;
+      max-width: 480px;
+      color: rgba(255, 255, 255, 0.95);
+      margin: 0;
+    }
+
+    /* Bottom Nav: Low Precision Placement */
+    .slider-nav {
+      position: absolute;
+      bottom: 40px;
+      left: 10%;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .nav-arrow {
+      background: none;
+      border: none;
+      color: #fff;
+      opacity: 0.4;
+      cursor: pointer;
+      display: flex;
+      transition: all 0.3s ease;
+    }
+
+    .nav-arrow:hover {
+      transform: scale(1.2);
+      opacity: 1;
+      color: var(--gold);
+    }
+
+    .nav-counter {
+      font-family: var(--font-sans);
+      font-size: 3rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    #currentNum {
+      font-size: 4.8rem;
+      /* Increased size */
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .nav-total {
+      font-size: 1.5rem;
+      font-weight: 700;
+      opacity: 1;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 1024px) {
+      .slide-name {
+        font-size: 4rem;
+      }
+
+      .quote-icon-big {
+        width: 220px;
+      }
+
+      .nav-counter {
+        font-size: 2rem;
+      }
+
+      #currentNum {
+        font-size: 3.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
       .quote-slider {
         height: auto;
-        min-height: 70vh;
-        padding: 60px 0;
+        min-height: 800px;
       }
+
       .slide-inner {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        gap: 80px;
+        padding: 100px 5%;
       }
+
+      .slide-left,
       .slide-right {
         align-items: center;
         text-align: center;
+        flex: none;
+        margin: 0;
+        padding: 0;
+        transform: none;
+        /* Disable shift on mobile for stability */
       }
-      .slide-name {
-        font-size: 2rem;
-        justify-content: center;
+
+      .slide-underline {
+        margin: 15px auto 40px;
       }
-      .quote-main-text {
-        font-size: 1.15rem;
-        max-width: 100%;
+
+      .slider-nav {
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30px;
       }
-      .quote-icon-big {
-        display: none;
+
+      .nav-arrow {
+        scale: 0.8;
       }
-    }
-    @keyframes slideInRight {
-      to { opacity: 0.8; transform: translateX(0); }
-    }
-    @keyframes scaleXIn {
-      to { opacity: 1; transform: scaleX(1); }
-    }
-    @keyframes scalePop {
-      to { opacity: 1; transform: scale(1); }
+
+      #currentNum {
+        font-size: 3rem;
+      }
     }
 
-    /* Controls */
-    .slider-nav {
-      position: absolute;
-      bottom: 60px;
-      left: 5%;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      font-family: var(--font-sans);
+    position: absolute;
+    bottom: 60px;
+    left: 5%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-family: var(--font-sans);
     }
 
     .nav-arrow {
@@ -2215,6 +2556,7 @@
       transition: opacity 0.3s, transform 0.3s;
       padding: 10px;
     }
+
     .nav-arrow:hover {
       opacity: 1;
       transform: scale(1.1);
@@ -2225,6 +2567,7 @@
       font-weight: 300;
       letter-spacing: 0.05em;
     }
+
     .nav-counter span {
       font-size: 0.9rem;
       opacity: 0.6;
@@ -2243,54 +2586,80 @@
         flex-direction: column;
         justify-content: center;
       }
+
       .slide-right {
         align-items: center;
         text-align: center;
         margin-top: 20px;
       }
+
       .slide-name {
         font-size: 1.8rem;
         justify-content: center;
         letter-spacing: 0;
       }
+
       .quote-main-text {
         font-size: 1.05rem;
         max-width: 400px;
         margin: 0 auto;
       }
+
       .is-active .slide-name,
       .is-active .quote-main-text {
         opacity: 1 !important;
         transform: translateY(0) !important;
         transition: opacity 0.4s ease, transform 0.4s ease;
       }
+
       .slider-nav {
         left: 50%;
         transform: translateX(-50%);
         bottom: 40px;
       }
+
       .quote-icon-big {
         display: none;
       }
     }
   </style>
-</head>
+
 <body>
   <header class="site-header" id="site-header" role="banner">
     <div class="container nav-inner">
       <nav class="nav" aria-label="Primary">
         <div class="brand">K. Ratna Prabha</div>
         <div class="nav-links">
-          <span>Home</span>
-          <span>About</span>
-          <span>Impact</span>
-          <span>Media</span>
-          <span>Gallery</span>
+          <a href="#hero">Home</a>
+          <a href="#intro">About</a>
+          <a href="#bidar">Impact</a>
+          <a href="#media">Media</a>
+          <a href="#gallery">Gallery</a>
         </div>
-        <a class="btn-header-contact" href="#contact">Contact Us</a>
+
+        <div class="header-right">
+          <a class="btn-header-contact" href="#contact">
+            <span class="btn-text">Contact Us</span>
+            <img class="btn-icon" src="./assets/images/icons/phone-icon.svg" alt="Contact">
+          </a>
+          <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+            <img class="menu-icon" src="./assets/images/icons/menu-icon.svg" alt="Menu">
+          </button>
+        </div>
       </nav>
     </div>
   </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-links">
+      <a href="#hero" onclick="toggleMenu()">Home</a>
+      <a href="#intro" onclick="toggleMenu()">About</a>
+      <a href="#bidar" onclick="toggleMenu()">Impact</a>
+      <a href="#media" onclick="toggleMenu()">Media</a>
+      <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+    </div>
+  </div>
 
   <section class="hero">
     <div class="hero-inner container">
@@ -2300,8 +2669,10 @@
             <span class="line-1">K. RATNA</span>
             <span class="line-2">PRABHA</span>
           </h1>
-          <p class="hero-tagline">Leadership. Impact. Vision.</p>
-          <p class="hero-desc">Retd. IAS officer and former Chief Secretary, Government of Karnataka — dedicated to public service, inclusive policy, and lasting impact.</p>
+          <p class="hero-tagline">A Legacy of Empathy.<br> A Future of Empowerment.</p>
+          <p class="hero-desc">37 years of public service transforming policy
+            into people-centric governance.
+          </p>
           <a class="btn-gold" href="#intro">Read Her Journey</a>
         </div>
       </div>
@@ -2311,28 +2682,32 @@
   <section class="stats-section" aria-label="Highlights">
     <div class="container stats-grid">
       <article class="stat-card">
-        <img class="stat-card-icon" src="./assets/images/icons/public.svg" width="35" height="35" alt="" aria-hidden="true">
+        <img class="stat-card-icon" src="./assets/images/icons/public.svg" width="35" height="35" alt=""
+          aria-hidden="true">
         <p class="stat-card-value">
           <span class="stat-value" data-target="37" data-suffix="+">0</span>
         </p>
         <p class="stat-card-label">Years of<br>Public Service</p>
       </article>
       <article class="stat-card">
-        <img class="stat-card-icon" src="./assets/images/icons/women.svg" width="35" height="23" alt="" aria-hidden="true">
+        <img class="stat-card-icon" src="./assets/images/icons/women.svg" width="35" height="23" alt=""
+          aria-hidden="true">
         <p class="stat-card-value">
           <span class="stat-value" data-target="15" data-suffix="K+">0</span>
         </p>
         <p class="stat-card-label">Women Entrepreneurs Empowered</p>
       </article>
       <article class="stat-card">
-        <img class="stat-card-icon" src="./assets/images/icons/associate.svg" width="35" height="26" alt="" aria-hidden="true">
+        <img class="stat-card-icon" src="./assets/images/icons/associate.svg" width="35" height="26" alt=""
+          aria-hidden="true">
         <p class="stat-card-value">
           <span class="stat-value" data-target="24">0</span>
         </p>
         <p class="stat-card-label">Associations Under Ubuntu</p>
       </article>
       <article class="stat-card">
-        <img class="stat-card-icon" src="./assets/images/icons/industry.svg" width="35" height="34" alt="" aria-hidden="true">
+        <img class="stat-card-icon" src="./assets/images/icons/industry.svg" width="35" height="34" alt=""
+          aria-hidden="true">
         <p class="stat-card-value">
           <span class="stat-value" data-target="4">0</span>
         </p>
@@ -2350,7 +2725,8 @@
           <p class="intro-role">Founder President<br>Ubuntu Consortium</p>
         </div>
         <div class="intro-divider" aria-hidden="true"></div>
-        <p class="intro-quote">“Such officers should be a role model for others. If all follow in her footsteps, no one can stop this country from progressing.”</p>
+        <p class="intro-quote">“Such officers should be a role model for others. If all follow in her footsteps, no one
+          can stop this country from progressing.”</p>
         <div class="intro-attribution">
           <p class="intro-sig">-Narendra Modi</p>
           <p class="intro-designation">Prime Minister of India</p>
@@ -2363,16 +2739,19 @@
   <section class="container section-split" id="journey">
     <div>
       <h2>I Am Because<br>We Are</h2>
-      <p class="body-text">Her philosophy of collective progress shaped decades of work in administration — from Bidar to Bengaluru — placing people, dignity, and opportunity at the center of every decision.</p>
+      <p class="body-text">With extensive experience in IT, Industry & Commerce, Skill Development, and Women
+        Entrepreneurship, she held pivotal roles including Chief Secretary and Additional Chief Secretary in Karnataka
+      </p>
       <a class="btn-black" href="#">Read More</a>
     </div>
     <div>
       <div class="media-stack journey-media-stack" data-media-stack aria-label="Ubuntu media highlights">
         <article class="media-stack-card is-active">
-          <img src="./assets/images/media/media-img1.png" width="586" height="350" alt="Meeting and discussion highlights">
+          <img src="./assets/images/media/media-img1.avif" width="586" height="350"
+            alt="Meeting and discussion highlights">
         </article>
         <article class="media-stack-card is-next">
-          <img src="./assets/images/media/media-img2.png" width="586" height="350" alt="Public event highlight">
+          <img src="./assets/images/media/media-img2.avif" width="586" height="350" alt="Public event highlight">
         </article>
       </div>
     </div>
@@ -2382,9 +2761,9 @@
     <div class="container">
       <h2>The Bidar Chronicles</h2>
       <div class="bidar-cards">
-        <div class="bidar-card">A Vision for Education &amp; Empowerment</div>
-        <div class="bidar-card">Empowering the Youth &amp; Communities</div>
-        <div class="bidar-card">A Vision for Progress Across Karnataka</div>
+        <div class="bidar-card">First Woman Assistant Commissioner</div>
+        <div class="bidar-card">Cultural Transformation</div>
+        <div class="bidar-card">Hundreds of girls named “Ratna Prabha”</div>
       </div>
       <div class="btn-wrap">
         <a class="btn-outline-gold" href="#">View All</a>
@@ -2401,8 +2780,9 @@
           <span class="line-2">RATNA PRABHA</span>
           <span class="line-3">EFFECT</span>
         </h2>
-        <p class="effect-intro">A legacy of transformation where bold administration meets grassroots empowerment, leaving an indelible mark across the geography of Karnataka.</p>
-        
+        <p class="effect-intro">A legacy of transformation where bold administration meets grassroots empowerment,
+          leaving an indelible mark across the geography of Karnataka.</p>
+
         <div class="effect-cards">
           <article class="effect-card">
             <h3>Bidar</h3>
@@ -2423,7 +2803,7 @@
         </div>
       </div>
       <div class="map-stage">
-        <img class="map-img" src="./assets/images/karnataka-map.png" width="1200" height="900" alt="Map of Karnataka">
+        <img class="map-img" src="./assets/images/karnataka-map.avif" width="1200" height="900" alt="Map of Karnataka">
       </div>
     </div>
   </section>
@@ -2465,43 +2845,68 @@
       <div class="ubuntu-copy">
         <p class="ubuntu-eyebrow">A Journey of Service</p>
         <h2 class="ubuntu-title">I Am Because You Are</h2>
-        <p class="ubuntu-text">Building networks of support from Ubuntu to statewide missions, where each stakeholder grows stronger together.</p>
+        <p class="ubuntu-text">Building networks of support from Ubuntu to statewide missions, where each stakeholder
+          grows stronger together.</p>
         <a class="btn-black ubuntu-cta" href="#">Read More</a>
       </div>
       <div class="ubuntu-media-wrap">
-        <img class="ubuntu-cover" src="./assets/images/ubuntu-cover.png" width="550" height="586" alt="K. Ratna Prabha portrait">
+        <img class="ubuntu-cover" src="./assets/images/ubuntu-cover.avif" width="550" height="586"
+          alt="K. Ratna Prabha portrait">
       </div>
     </div>
   </section>
 
   <section class="quote-slider" id="quote-hero">
     <div class="slide slide-1 is-active">
+      <img class="slide-bg-portrait" src="./assets/images/ratna-bg.avif" alt="">
       <div class="slide-inner">
-        <blockquote class="slide-main-quote">
-          "A nation's true progress is measured by the economic independence and smile of its women."
-        </blockquote>
-        <p class="slide-attribution">K. RATNA PRABHA</p>
+        <div class="slide-left">
+          <h2 class="slide-name">RATNA PRABHA</h2>
+          <div class="slide-underline"></div>
+          <img class="quote-icon-big" src="./assets/images/icons/quote-icon-big.svg" alt="">
+        </div>
+        <div class="slide-right">
+          <img class="quote-icon-small" src="./assets/images/icons/quote-icon-small.svg" alt="">
+          <blockquote class="quote-main-text">
+            "A nation's true progress is measured by the economic independence and smile of its women."
+          </blockquote>
+        </div>
       </div>
     </div>
 
     <div class="slide slide-2">
+      <img class="slide-bg-portrait" src="./assets/images/ratna-bg.avif" alt="">
       <div class="slide-inner">
-        <blockquote class="slide-main-quote">
-          "Every decision we make in administration must echo the needs of the last person in the queue."
-        </blockquote>
-        <p class="slide-attribution">COMMITMENT TO PUBLIC SERVICE</p>
+        <div class="slide-left">
+          <h2 class="slide-name">RATNA PRABHA</h2>
+          <div class="slide-underline"></div>
+          <img class="quote-icon-big" src="./assets/images/icons/quote-icon-big.svg" alt="">
+        </div>
+        <div class="slide-right">
+          <img class="quote-icon-small" src="./assets/images/icons/quote-icon-small.svg" alt="">
+          <blockquote class="quote-main-text">
+            "A nation's true progress is measured by the economic independence and smile of its women."
+          </blockquote>
+        </div>
       </div>
     </div>
 
-    <div class="slider-progress" id="sliderProgress"></div>
-
     <div class="slider-nav">
       <button class="nav-arrow" id="prevSlide" aria-label="Previous Slide">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
       </button>
-      <div class="nav-counter"><span id="currentNum">01</span> / 02</div>
+      <div class="nav-counter">
+        <span id="currentNum">01</span>
+        <span class="nav-total">/ 02</span>
+      </div>
       <button class="nav-arrow" id="nextSlide" aria-label="Next Slide">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
       </button>
     </div>
   </section>
@@ -2514,7 +2919,8 @@
           <img src="./assets/images/icons/Award1.svg" alt="Global Exemplary Leadership Award 2025" class="award-icon">
         </div>
         <div class="award-card">
-          <img src="./assets/images/icons/award2.svg" alt="3rd Woman Chief Secretary of Karnataka 2017" class="award-icon">
+          <img src="./assets/images/icons/award2.svg" alt="3rd Woman Chief Secretary of Karnataka 2017"
+            class="award-icon">
         </div>
         <div class="award-card">
           <img src="./assets/images/icons/award3.svg" alt="Woman of the Year 1999" class="award-icon">
@@ -2531,15 +2937,15 @@
       </div>
       <div class="media-row">
         <article class="media-card">
-          <img src="./assets/images/media/media-img1.png" width="586" height="350" alt="Press meet with key officials">
+          <img src="./assets/images/media/media-img1.avif" width="586" height="350" alt="Press meet with key officials">
           <p>Press meet with key officials and leadership discussion</p>
         </article>
         <article class="media-card">
-          <img src="./assets/images/media/media-img2.png" width="586" height="350" alt="Public event with dignitaries">
+          <img src="./assets/images/media/media-img2.avif" width="586" height="350" alt="Public event with dignitaries">
           <p>Public event moments with dignitaries and stakeholders</p>
         </article>
         <article class="media-card">
-          <img src="./assets/images/media/media-img3.png" width="129" height="350" alt="Media archive highlight">
+          <img src="./assets/images/media/media-img3.avif" width="129" height="350" alt="Media archive highlight">
           <p>Media archive highlight from field and policy engagements</p>
         </article>
       </div>
@@ -2554,10 +2960,10 @@
         <a class="btn-black" href="#" style="margin-top:0;">View All</a>
       </div>
       <div class="masonry">
-        <img class="g1" src="./assets/images/because-we-are.png" alt="Gallery: public event">
-        <img class="g2" src="./assets/images/profile.png" alt="Gallery: portrait">
-        <img class="g3" src="./assets/images/section-bg.png" alt="Gallery: heritage">
-        <img class="g4" src="./assets/images/hero-overlay.png" alt="Gallery: ceremony">
+        <img class="g1" src="./assets/images/Photos/photo1.avif" alt="Gallery Photo 1">
+        <img class="g2" src="./assets/images/Photos/photo2.avif" alt="Gallery Photo 2">
+        <img class="g3" src="./assets/images/Photos/photo3.avif" alt="Gallery Photo 3">
+        <img class="g4" src="./assets/images/Photos/photo4.avif" alt="Gallery Photo 4">
       </div>
     </div>
   </section>
@@ -2567,7 +2973,8 @@
       <div class="footer-top">
         <div>
           <div class="footer-brand">K. Ratna Prabha</div>
-          <p style="margin:12px 0 0;font-size:0.875rem;max-width:280px;line-height:1.5;">Public service, policy, and people-first governance.</p>
+          <p style="margin:12px 0 0;font-size:0.875rem;max-width:280px;line-height:1.5;">Public service, policy, and
+            people-first governance.</p>
         </div>
         <div class="footer-col">
           <h4>Quick Links</h4>
@@ -2589,7 +2996,7 @@
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <p style="margin:0 0 12px;">contact@example.com</p>
+          <p style="margin:0 0 12px;">contact@ratnaprabha.org</p>
           <div class="social">
             <a href="#" aria-label="Facebook">f</a>
             <a href="#" aria-label="Twitter">t</a>
@@ -2619,6 +3026,12 @@
           var progress = Math.min(y / heroHeight, 1);
 
           header.style.setProperty("--scroll-progress", progress);
+
+          if (y > 20) {
+            header.classList.add("is-scrolled");
+          } else {
+            header.classList.remove("is-scrolled");
+          }
 
           if (y < lastY - directionEpsilon || y <= topRevealPx) {
             // Show if scrolling up OR at the very top
@@ -2850,7 +3263,7 @@
               reelItem.strip.style.transform = "translateY(-" + reelItem.totalSteps + "em)";
 
               // Switch to spring easing for the final settle and remove blur
-              window.setTimeout(function() {
+              window.setTimeout(function () {
                 reelItem.strip.classList.remove("is-spinning");
                 reelItem.strip.style.transition = "transform 1200ms cubic-bezier(0.34, 1.56, 0.64, 1)";
               }, reelItem.reelDuration + reelItem.reelDelay - 150);
@@ -2866,7 +3279,7 @@
       function playStatsAnimation() {
         if (hasPlayedStats || !statValues.length) return;
         hasPlayedStats = true;
-        
+
         var cards = document.querySelectorAll(".stat-card");
         cards.forEach(function (card, index) {
           var cardValues = card.querySelectorAll(".stat-value");
@@ -2914,30 +3327,31 @@
         var sliderInterval;
         var slideDuration = 3000;
 
-        function resetProgressBar() {
-          if (!progressBar) return;
-          progressBar.style.transition = "none";
-          progressBar.style.width = "0";
-          // Force reflow
-          void progressBar.offsetWidth;
-          progressBar.style.transition = "width " + slideDuration + "ms linear";
-          progressBar.style.width = "100%";
-        }
-
         function goToSlide(n) {
-          slides[sliderIndex].classList.remove("is-active");
+          var oldIndex = sliderIndex;
           sliderIndex = (n + slides.length) % slides.length;
+
+          if (oldIndex === sliderIndex) return;
+
+          slides[oldIndex].classList.remove("is-active");
+          slides[oldIndex].classList.add("exit-right");
+
+          slides[sliderIndex].classList.remove("exit-right");
           slides[sliderIndex].classList.add("is-active");
+
+          // Remove classes after transition completes
+          setTimeout(function () {
+            slides[oldIndex].classList.remove("exit-right");
+          }, 1050);
+
           if (currentNumSpan) {
             currentNumSpan.textContent = (sliderIndex + 1).toString().padStart(2, '0');
           }
-          resetProgressBar();
         }
 
         function startAutoplay() {
           stopAutoplay();
-          resetProgressBar();
-          sliderInterval = window.setInterval(function() {
+          sliderInterval = window.setInterval(function () {
             goToSlide(sliderIndex + 1);
           }, slideDuration);
         }
@@ -2947,14 +3361,14 @@
         }
 
         if (prevBtn) {
-          prevBtn.addEventListener("click", function() {
+          prevBtn.addEventListener("click", function () {
             goToSlide(sliderIndex - 1);
             startAutoplay();
           });
         }
 
         if (nextBtn) {
-          nextBtn.addEventListener("click", function() {
+          nextBtn.addEventListener("click", function () {
             goToSlide(sliderIndex + 1);
             startAutoplay();
           });
@@ -2964,8 +3378,24 @@
           startAutoplay();
         }
       }
+
+      // Mobile Menu Toggle logic
+      const menuToggle = document.getElementById('menuToggle');
+      const mobileNav = document.getElementById('mobileNav');
+
+      window.toggleMenu = function () {
+        if (!menuToggle || !mobileNav) return;
+        menuToggle.classList.toggle('is-active');
+        mobileNav.classList.toggle('is-active');
+        document.body.style.overflow = mobileNav.classList.contains('is-active') ? 'hidden' : '';
+      };
+
+      if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+      }
     })();
   </script>
 </body>
+
 </html>
 <!-- Trigger Vercel Build -->
