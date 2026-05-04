@@ -1,0 +1,197 @@
+      .brand {
+        font-size: 0.9rem;
+      }
+
+      .btn-header-contact {
+        width: auto;
+        padding: 0 12px;
+        height: 32px;
+        font-size: 0.65rem;
+      }
+    }
+
+    /* —— Nav + Hero —— */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      color: var(--white);
+      background: url("./assets/images/hero-header.avif") center center/cover no-repeat;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      padding: clamp(96px, 14vh, 132px) 0 72px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      background: transparent;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--white);
+      flex-shrink: 0;
+      transition: color 0.35s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1;
+      gap: 80px;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
+      transition: color 0.35s ease;
+    }
+
+    .nav-links span {
+      cursor: default;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 50%;
+      font-size: 0.875rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+    }
+
+    .social a:hover {
+      background: var(--gold);
+      color: var(--navy-deep);
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px var(--gold);
+    }
+
+    .btn-header-contact {
+      font-family: var(--font-sans);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 117px;
+      height: 40px;
+      box-sizing: border-box;
+      background: var(--header-cta);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.75rem;
+      line-height: 1;
+      text-decoration: none;
+      border: none;
+      border-radius: 15px;
+      flex-shrink: 0;
+      --btn-glow: rgba(24, 54, 121, 0.38);
+    }
+
+    .hero-text {
+      margin-top: clamp(28px, 8vh, 72px);
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .hero-card {
+      background: rgba(18, 54, 121, 0.15);
+      /* Tinted transparent blue-navy */
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: clamp(32px, 5vw, 64px);
+      border-radius: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 620px;
+      text-align: right;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: hero-reveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes hero-reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-card h1 {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--gold);
+    }
+
+    .hero-card h1 span {
+      display: block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: hero-item-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .hero-card h1 .line-1 {
+      animation-delay: 0.2s;
+    }
+
+    .hero-card h1 .line-2 {
+      animation-delay: 0.35s;
+      color: var(--gold);
+    }
+
+    .hero-card h1 .line-3 {
+      animation-delay: 0.5s;
+    }
+
+    @keyframes hero-item-reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-tagline {
+      margin-top: 24px;
+      font-family: var(--font-sans);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--white);
+      letter-spacing: 0em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: hero-item-reveal 0.8s ease forwards;
+      animation-delay: 0.65s;
+    }
+
+    .hero-desc {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      opacity: 0;
+      animation: hero-item-reveal 0.8s ease forwards;
+      animation-delay: 0.8s;
+    }
+
+    .btn-gold {
+      position: relative;
+      display: inline-flex;

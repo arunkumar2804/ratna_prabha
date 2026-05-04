@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery | K. Ratna Prabha</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="media.css">
+    <style>
+        .gallery-container {
+            max-width: 1200px;
+            margin: 4rem auto 5rem;
+            padding: 0 2rem;
+        }
+        
+        .gallery-title {
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 2.5rem;
+            font-family: var(--font-sans);
+            letter-spacing: -0.02em;
+        }
+
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 600px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+            .gallery-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-img {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            line-height: 1;
+            background: none;
+            border: none;
+            padding: 10px;
+            z-index: 2010;
+        }
+
+        .lightbox-close:hover {
+            color: var(--accent-light, #ccc);
+        }
+
+        .lightbox-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+            z-index: 2010;
+        }
+
+        .lightbox-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .lightbox-prev {
+            left: 2rem;
+        }
+
+        .lightbox-next {
+            right: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .lightbox-prev { left: 1rem; }
+            .lightbox-next { right: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">K. Ratna Prabha</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#impact">Impact</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+            </ul>
+            <a href="contact.html" class="btn-contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <main class="gallery-container">
+        <h1 class="gallery-title">Photo Gallery</h1>
+        
+        <div class="masonry-grid" id="galleryGrid">
+            <!-- Images will be rendered here dynamically -->
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <button class="lightbox-btn lightbox-prev" id="lightboxPrev" aria-label="Previous image">&#10094;</button>
+        <img src="" alt="Fullscreen Gallery Image" class="lightbox-img" id="lightboxImg">
+        <button class="lightbox-btn lightbox-next" id="lightboxNext" aria-label="Next image">&#10095;</button>
+    </div>
+
+    <script>
+        const images = [
+            'assets/images/gallery/unsplash9ickpsq9g5q.avif',
+            'assets/images/gallery/unsplash9z1krifpbtm.avif',
+            'assets/images/gallery/unsplashcbh4d3l0ewm.avif',
+            'assets/images/gallery/unsplashd2zvqp3fpro.avif',
+            'assets/images/gallery/unsplashndd3dikkolo.avif',
+            'assets/images/gallery/unsplashpxozstdazeu.avif',
+            'assets/images/gallery/unsplashviem9bdzkfo.avif',
+            'assets/images/gallery/unsplashx2tmfd1-sga.avif',
+            'assets/images/gallery/unsplashxtud5six464.avif'
+        ];
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+
+        let currentIndex = 0;
+
+        // Render images to grid
+        images.forEach((src, index) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item';
+            
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = `Gallery Image ${index + 1}`;
+            img.loading = 'lazy'; // Optimization
+            
+            item.appendChild(img);
+            
+            item.addEventListener('click', () => {
+                openLightbox(index);
+            });
+            
+            galleryGrid.appendChild(item);
+        });
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightboxImage();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling in background
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function updateLightboxImage() {
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function nextImage(e) {
+            if (e) e.stopPropagation();
+            currentIndex = (currentIndex + 1) % images.length;
+            updateLightboxImage();
+        }
+
+        function prevImage(e) {
+            if (e) e.stopPropagation();
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            updateLightboxImage();
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+
+        // Close on background click
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImage();
+            if (e.key === 'ArrowLeft') prevImage();
+        });
+    </script>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h2 class="footer-logo">K. Ratna Prabha</h2>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg></a>
+                    </div>
+                </div>
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.html#impact">Impact</a></li>
+                            <li><a href="media.html">Media</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="gallery.html">Gallery</a></li>
+                            <li><a href="#ubuntu">Ubuntu</a></li>
+                            <li><a href="#book">Book</a></li>
+                            <li><a href="#policies">Policies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:contact@ratnaprabha.com">Email Us</a></li>
+                            <li><a href="tel:+910000000000">Support Hotline</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ratna Prabha. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Legal</a>
+                    <a href="#">Site Map</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
