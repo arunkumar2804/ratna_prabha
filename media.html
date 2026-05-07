@@ -51,27 +51,19 @@
 
     <main class="media-container">
         <!-- Hero Card -->
-        <div class="hero-card">
-            <img src="assets/images/media-page/media-page-hero.avif" alt="AKKA IAS Interview" class="hero-img">
+        <div class="hero-card" onclick="openVideo('d30x5cAoEJU')" style="cursor: pointer;">
+            <img src="https://img.youtube.com/vi/d30x5cAoEJU/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://img.youtube.com/vi/d30x5cAoEJU/hqdefault.jpg';" alt="AKKA IAS Interview" class="hero-img">
             <div class="hero-overlay">
                 <div class="hero-text">
-                    AKKA IAS Interview Guidance Programme |<br>Smt. Ratna Prabha IAS(Retd)Former Chief Secretary of Karnataka
+                    AKKA IAS Interview Guidance Programme |<br>Smt. Ratna Prabha IAS(Retd)
                 </div>
-                <a href="#" class="btn-watch hero-btn">Watch Now</a>
+                <a href="#" onclick="event.preventDefault();" class="btn-watch hero-btn">Watch Now</a>
             </div>
         </div>
 
         <!-- Video Grid -->
         <div class="video-grid">
-            <div class="video-column">
-                <div class="video-card" onclick="openVideo('d30x5cAoEJU')" style="cursor: pointer;">
-                    <img src="https://img.youtube.com/vi/d30x5cAoEJU/hqdefault.jpg" alt="AKKA IAS Interview" class="video-img">
-                    <div class="video-content">
-                        <p class="video-title">AKKA IAS Interview Guidance Programme | Smt. Ratna Prabha IAS(Retd)</p>
-                        <a href="#" onclick="event.preventDefault();" class="btn-watch">Watch Now</a>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="video-column">
                 <div class="video-card" onclick="openVideo('fmsVIWE7e6s')" style="cursor: pointer;">
