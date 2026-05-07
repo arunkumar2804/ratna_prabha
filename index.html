@@ -1057,7 +1057,6 @@
       color: var(--navy-deep);
     }
 
-    .effect-title .line-1,
     .effect-title .line-2,
     .effect-title .line-3 {
       opacity: 0;
@@ -1065,22 +1064,17 @@
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .effect-title .line-1 {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      transition-delay: 100ms;
-    }
+
 
     .effect-title .line-2 {
-      font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+      font-size: clamp(1.8rem, 5vw, 5.2rem);
       font-weight: 800;
-      letter-spacing: -0.03em;
-      margin: 4px 0;
       color: var(--navy);
       transition-delay: 250ms;
       position: relative;
       overflow: hidden;
+      white-space: nowrap;
+      letter-spacing: -0.02em;
     }
 
     /* Reveal effect for line 2 */
