@@ -31,6 +31,7 @@
     </nav>
     <style>
         @media (max-width: 768px) {
+            .nav-container { position: relative; }
             .nav-menu-btn { display: flex !important; }
             .nav-links { display: none !important; position: absolute; top: 100%; left: 0; width: 100%; background: #fff; flex-direction: column; padding: 20px; gap: 15px !important; box-shadow: 0 5px 10px rgba(0,0,0,0.1); z-index: 1000; }
             .nav-links.active { display: flex !important; }
@@ -87,6 +88,16 @@
                     <img src="https://img.youtube.com/vi/VnThIrwfh3Y/hqdefault.jpg" alt="President Ubuntu Consortium" class="video-img">
                     <div class="video-content">
                         <p class="video-title">Ex-chief secretary Govt of Karnataka</p>
+                        <a href="#" onclick="event.preventDefault();" class="btn-watch">Watch Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-column">
+                <div class="video-card" onclick="openVideo('VnThIrwfh3Y')" style="cursor: pointer;">
+                    <img src="https://img.youtube.com/vi/VnThIrwfh3Y/hqdefault.jpg" alt="Growth Potential of Bangalore" class="video-img">
+                    <div class="video-content">
+                        <p class="video-title">Growth Potential of Bangalore</p>
                         <a href="#" onclick="event.preventDefault();" class="btn-watch">Watch Now</a>
                     </div>
                 </div>
